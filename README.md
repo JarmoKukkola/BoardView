@@ -1,6 +1,6 @@
 # Goal of this fork
 
-This is a fork of https://github.com/jakebonk/BoardView in order to update to AndroidX and Android Studio 3.5 beta 2.
+This is a fork of https://github.com/jakebonk/BoardView [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0.html) in order to update to AndroidX and Android Studio 3.5 beta 2.
 
 [![](https://jitpack.io/v/jakebonk/BoardView.svg)](https://jitpack.io/#jakebonk/BoardView)
 
