@@ -1,6 +1,11 @@
+#Origin
+
+This is a fork of https://github.com/jakebonk/BoardView
+
 [![](https://jitpack.io/v/jakebonk/BoardView.svg)](https://jitpack.io/#jakebonk/BoardView)
 
 # BoardView
+
 BoardView is a custom view that allows you to be able to re-order items in a list as well as in a board. You can drag and drop items between columns as well as drag and drop columns.
 
 ## Example
@@ -8,7 +13,9 @@ BoardView is a custom view that allows you to be able to re-order items in a lis
 ![Basic Example](https://thumbs.gfycat.com/DeadUntidyHartebeest-size_restricted.gif)
 
 ## Download library with Jitpack.io
+
 Add this to your build.gradle file for your app.
+
 ```java
 	allprojects {
 		repositories {
@@ -16,17 +23,20 @@ Add this to your build.gradle file for your app.
 			maven { url 'https://jitpack.io' }
 		}
 	}
-```	
+```
 
 Add this to your dependencies in build.gradle for your project.
+
 ```java
 	dependencies {
 	        implementation 'com.github.jakebonk:BoardView:1.3.6'
 	}
 ```
+
 ## Usage
 
 BoardView utilizes a BoardAdapter, SimpleBoardAdapter is an example of how to extend BoardAdapter.
+
 ```java
 	BoardView boardView = (BoardView)findViewById(R.id.boardview);
 	ArrayList<SimpleBoardAdapter.SimpleColumn> data = new ArrayList<>();
@@ -43,6 +53,7 @@ BoardView utilizes a BoardAdapter, SimpleBoardAdapter is an example of how to ex
         SimpleBoardAdapter boardAdapter = new SimpleBoardAdapter(this,data);
         boardView.setAdapter(boardAdapter);
 ```
+
 To manipulate the BoardView simply call one of the new functions in BoardAdapter
 
 ```java
@@ -60,6 +71,7 @@ I also added the ability to set Transition animations when adding items/columns.
 ```
 
 There are two types of drag listeners, the first is for columns
+
 ```java
 	 boardView.setOnDragColumnListener(new BoardView.DragColumnStartCallback() {
             @Override
@@ -71,10 +83,10 @@ There are two types of drag listeners, the first is for columns
             public void changedPosition(View view, int startColumnPos, int newColumnPos) {
 
             }
-	    
+
 	    @Override
             public void dragging(View itemView, MotionEvent event) {
-                
+
             }
 
             @Override
@@ -83,7 +95,9 @@ There are two types of drag listeners, the first is for columns
             }
         });
 ```
+
 Similarly we can get the drag listener for items
+
 ```java
 	 boardView.setOnDragItemListener(new BoardView.DragItemStartCallback() {
             @Override
@@ -95,10 +109,10 @@ Similarly we can get the drag listener for items
             public void changedPosition(View view, int startItemPos, int startColumnPos, int newItemPos, int newColumnPos) {
 
             }
-	    
+
 	     @Override
             public void dragging(View itemView, MotionEvent event) {
-	    
+
             }
 
             @Override
@@ -110,7 +124,7 @@ Similarly we can get the drag listener for items
 
 There is also a listener for when the BoardView has finished creating and assigning its views.
 
-```java 
+```java
 
 	 boardView.setOnDoneListener(new BoardView.DoneListener() {
             @Override
@@ -122,25 +136,25 @@ There is also a listener for when the BoardView has finished creating and assign
 ```
 
 This is how to set the click listener for a item, header and footer, which gives their respective positions.
-	
+
 ```java
-	
+
 	boardView.setOnItemClickListener(new BoardView.ItemClickListener() {
             @Override
             public void onClick(View v, int column_pos, int item_pos) {
-                
+
             }
         });
         boardView.setOnHeaderClickListener(new BoardView.HeaderClickListener() {
             @Override
             public void onClick(View v, int column_pos) {
-                
+
             }
-        });	
+        });
 	boardView.setOnFooterClickListener(new BoardView.FooterClickListener() {
             @Override
             public void onClick(View v, int column_pos) {
-	    
+
             }
         });
 
@@ -151,13 +165,13 @@ By setting SetColumnSnap you can allow the BoardView to snap to the closest colu
 ```java
 
 boardView.SetColumnSnap(true);
-	
+
 	or
-	
+
 boardView.SetColumnSnap(false);
 
 ```
-	
+
 ### Creating your own BoardAdapter
 
 Creating a custom BoardAdapter is pretty similar to that of a BaseAdapter, the main focus being to create some type of object that help you create your custom views for both headers and items.
@@ -170,7 +184,7 @@ The adapter also has two new abstract methods called, isColumnLocked when true p
 	}
 
 	@Override
-	public boolean isItemLocked(int column_position) {		
+	public boolean isItemLocked(int column_position) {
 		return false;
 	}
 ```
@@ -182,7 +196,8 @@ You can also set the maximum amount of items you want in a list. If -1 is return
     public int maxItemCount(int column_position) {
         return 4;
     }
-```    
+```
 
 ### Things to fix
+
 There is a scaling issue when the column is beginning dragging or has ended dragging. I know this is an issue but I don't know of a good way to solve this at the moment. I eventually will fix it but for now I'm putting it on the back burners.
