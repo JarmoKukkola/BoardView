@@ -1025,4 +1025,7 @@ public class BoardView extends FrameLayout {
         return new Rect(tmp.left,tmp.top,tmp.left+width,tmp.top+height);
     }
 
+    public void alignToBottom(){
+        mParentLayout.setGravity(Gravity.BOTTOM);
+    }
 }
