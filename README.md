@@ -1,6 +1,7 @@
-#Origin
+#Goal of this fork
 
-This is a fork of https://github.com/jakebonk/BoardView
+This is a fork of https://github.com/jakebonk/BoardView.
+The purpose of the fork is to update to AndroidX and Android Studio 3.5 beta 2.
 
 [![](https://jitpack.io/v/jakebonk/BoardView.svg)](https://jitpack.io/#jakebonk/BoardView)
 
@@ -29,7 +30,7 @@ Add this to your dependencies in build.gradle for your project.
 
 ```java
 	dependencies {
-	        implementation 'com.github.jakebonk:BoardView:1.3.6'
+	        implementation 'com.github.JarmoKukkola:BoardView:2.0.0-SNAPSHOT'
 	}
 ```
 
