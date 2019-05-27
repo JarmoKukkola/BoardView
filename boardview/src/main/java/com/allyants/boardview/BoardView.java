@@ -931,7 +931,9 @@ public class BoardView extends FrameLayout {
             footer.post(new Runnable() {
                 @Override
                 public void run() {
-                    scroll_view.setPadding(0,0,0,footer.getHeight());
+                    LinearLayout.LayoutParams scrollParams = (LinearLayout.LayoutParams) scroll_view.getLayoutParams();
+                    scrollParams.setMargins(scrollParams.leftMargin,scrollParams.topMargin,scrollParams.rightMargin,scrollParams.bottomMargin+footer.getHeight());
+                    scroll_view.setLayoutParams(scrollParams);
                     final LinearLayout.LayoutParams new_params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
                     new_params.setMargins(0,footer.getHeight()*-1,0,0);
                     removeParent(footer);
