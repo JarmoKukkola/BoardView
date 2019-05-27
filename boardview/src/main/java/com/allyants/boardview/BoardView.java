@@ -925,6 +925,9 @@ public class BoardView extends FrameLayout {
             footer_layout.setLayoutParams(params);
             parent_layout.addView(footer_layout);
             footer.setOnClickListener(createFooterOnClickListener(parent_layout));
+            if(!boardAdapter.columns.get(column_pos).column_locked) {
+                footer.setOnLongClickListener(createHeaderOnLongClickListener(layout,parent_layout));
+            }
             footer.post(new Runnable() {
                 @Override
                 public void run() {
